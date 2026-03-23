@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Age Calculator — Toolify Hub</title>
+  <meta name="description" content="Calculate age from birthdate quickly and accurately.">
+  <link rel="canonical" href="/tools/age-calculator.html">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="tool-age">
+  <div id="site-header"></div>
+  <main class="container tool">
+    <h1 class="tool-title" data-i18n="tool.age_calculator">Age Calculator</h1>
+    <p style="color:var(--muted)" data-i18n="age.lead">Compute age from a birth date.</p>
+
+    <section class="panel">
+      <label for="birthdate" data-i18n="age.label.birthdate">Birthdate</label>
+      <input id="birthdate" type="date" style="padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.04)">
+      <div class="tool-actions">
+        <button id="age-calc" class="btn" data-i18n="age.btn.calc">Calculate</button>
+        <button id="age-reset" class="btn btn-ghost" data-i18n="age.btn.reset">Reset</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <label data-i18n="age.label.result">Result</label>
+      <div id="age-result" style="padding:12px;color:var(--text);background:var(--surface);border-radius:8px;border:1px solid rgba(15,23,42,0.04)">—</div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

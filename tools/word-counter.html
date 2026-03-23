@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Word Counter — Toolify Hub</title>
+  <meta name="description" content="Count words, characters and estimate reading time on Toolify Hub.">
+  <link rel="canonical" href="/tools/word-counter.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Word Counter — DevTools Hub">
+  <meta property="og:description" content="Count words, characters and estimate reading time. Useful for writers and developers.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="tool-word-counter">
+  <div id="site-header"></div>
+
+  <main class="container tool">
+    <h1 class="tool-title" data-i18n="tool.word_counter">Word Counter</h1>
+    <p style="color:var(--muted)" data-i18n="wc.lead">Counts words, characters and estimates read time.</p>
+
+    <section class="panel full">
+      <label for="wc-input" data-i18n="wc.label.text">Text</label>
+      <textarea id="wc-input" class="code" data-i18n-placeholder="wc.placeholder" placeholder="Paste your text here..."></textarea>
+
+      <div class="wc-stats">
+        <div><strong id="wc-words">0</strong><span data-i18n="wc.stat.words">Words</span></div>
+        <div><strong id="wc-chars">0</strong><span data-i18n="wc.stat.chars">Characters</span></div>
+        <div><strong id="wc-sentences">0</strong><span data-i18n="wc.stat.sentences">Sentences</span></div>
+        <div><strong id="wc-time">0 min</strong><span data-i18n="wc.stat.read">Read</span></div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="wc-copy" class="btn" data-i18n="wc.btn.copy">Copy Text</button>
+        <button id="wc-clear" class="btn btn-ghost" data-i18n="wc.btn.clear">Clear</button>
+        <button id="wc-reset" class="btn btn-ghost" data-i18n="wc.btn.reset">Reset</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

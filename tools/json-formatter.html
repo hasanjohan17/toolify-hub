@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JSON Formatter — Toolify Hub</title>
+  <meta name="description" content="JSON Formatter: format, validate and minify JSON quickly on Toolify Hub.">
+  <link rel="canonical" href="/tools/json-formatter.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="JSON Formatter — DevTools Hub">
+  <meta property="og:description" content="Format, validate and minify JSON online. Quick JSON beautifier and validator.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="tool-json-formatter">
+  <div id="site-header"></div>
+
+  <main class="container tool">
+    <h1 class="tool-title">JSON Formatter</h1>
+    <p style="color:var(--muted)">Format, validate and compress JSON. Client-side only.</p>
+
+    <div class="tool-grid">
+      <section class="panel">
+        <label for="json-input">Input JSON</label>
+        <textarea id="json-input" class="code" placeholder='Paste JSON here...'></textarea>
+
+        <div class="tool-actions">
+          <button id="format-btn" class="btn">Format</button>
+          <button id="minify-btn" class="btn btn-ghost">Minify</button>
+          <button id="validate-btn" class="btn btn-ghost">Validate</button>
+          <button id="copy-input-btn" class="btn btn-small">Copy</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <label for="json-output">Output</label>
+        <textarea id="json-output" class="code" readonly placeholder="Formatted JSON will appear here"></textarea>
+        <div class="tool-actions">
+          <button id="copy-output-btn" class="btn">Copy Output</button>
+          <button id="reset-json" class="btn btn-ghost">Reset</button>
+        </div>
+      </section>
+    </div>
+    <!-- Ad Middle -->
+  </main>
+
+  <div id="site-footer"></div>
+  <!-- Ad Bottom -->
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

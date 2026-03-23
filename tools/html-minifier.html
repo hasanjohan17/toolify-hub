@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HTML Minifier — Toolify Hub</title>
+  <meta name="description" content="Minify HTML by removing comments and extra whitespace. Quick frontend minifier.">
+  <link rel="canonical" href="/tools/html-minifier.html">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="tool-html-minifier">
+  <div id="site-header"></div>
+  <main class="container tool">
+    <h1 class="tool-title">HTML Minifier</h1>
+    <p style="color:var(--muted)">Strip comments and collapse whitespace from HTML source.</p>
+
+    <section class="panel">
+      <label for="html-input">HTML Input</label>
+      <textarea id="html-input" class="code" placeholder="Paste HTML here"></textarea>
+      <div class="tool-actions">
+        <button id="html-minify" class="btn">Minify</button>
+        <button id="html-copy" class="btn btn-small">Copy</button>
+        <button id="html-reset" class="btn btn-ghost">Reset</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <label for="html-output">Output</label>
+      <textarea id="html-output" class="code" readonly></textarea>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

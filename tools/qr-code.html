@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QR Code Generator — Toolify Hub</title>
+  <meta name="description" content="Generate QR codes from text or URLs quickly.">
+  <link rel="canonical" href="/tools/qr-code.html">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="tool-qr">
+  <div id="site-header"></div>
+  <main class="container tool">
+    <h1 class="tool-title" data-i18n="tool.qr_code">QR Code Generator</h1>
+    <p style="color:var(--muted)" data-i18n="qr.lead">Enter text or a URL to create a QR code.</p>
+
+    <section class="panel">
+      <label for="qr-input" data-i18n="qr.label.input">Text or URL</label>
+      <input id="qr-input" data-i18n-placeholder="qr.placeholder.input" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.04)">
+      <div class="tool-actions">
+        <button id="qr-gen" class="btn" data-i18n="qr.btn.generate">Generate</button>
+        <button id="qr-copy" class="btn btn-small" data-i18n="qr.btn.copy">Copy Image URL</button>
+      </div>
+    </section>
+    <section class="panel">
+      <label data-i18n="qr.label.preview">QR Preview</label>
+      <div id="qr-preview" style="display:flex;justify-content:center;padding:12px">
+        <img id="qr-img" alt="qr" src="" loading="lazy" style="width:200px;height:200px;border-radius:8px;border:1px solid rgba(15,23,42,0.04)">
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Unit Converter — Toolify Hub</title>
+  <meta name="description" content="Convert length and weight units quickly.">
+  <link rel="canonical" href="/tools/unit-converter.html">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="tool-unit">
+  <div id="site-header"></div>
+  <main class="container tool">
+    <h1 class="tool-title" data-i18n="tool.unit_converter">Unit Converter</h1>
+    <p style="color:var(--muted)" data-i18n="uc.lead">Convert between common length and weight units.</p>
+
+    <section class="panel">
+      <label data-i18n="uc.label.type">Type</label>
+      <select id="uc-type" style="padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.04)">
+        <option value="length" data-i18n="uc.opt.length">Length</option>
+        <option value="weight" data-i18n="uc.opt.weight">Weight</option>
+      </select>
+
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <input id="uc-input" type="number" data-i18n-placeholder="uc.placeholder.value" placeholder="Value" style="flex:1;padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.04)">
+        <select id="uc-from" style="padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.04)"></select>
+        <select id="uc-to" style="padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.04)"></select>
+      </div>
+      <div class="tool-actions" style="margin-top:12px">
+        <button id="uc-convert" class="btn" data-i18n="uc.btn.convert">Convert</button>
+        <button id="uc-copy" class="btn btn-small" data-i18n="uc.btn.copy">Copy</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <label data-i18n="uc.label.result">Result</label>
+      <div id="uc-result" style="padding:12px;border-radius:8px;background:var(--surface);border:1px solid rgba(15,23,42,0.04)">—</div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

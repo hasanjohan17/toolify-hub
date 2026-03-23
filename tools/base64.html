@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Base64 Encode / Decode — Toolify Hub</title>
+  <meta name="description" content="Encode or decode Base64 strings quickly and safely in your browser.">
+  <link rel="canonical" href="/tools/base64.html">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="tool-base64">
+  <div id="site-header"></div>
+  <main class="container tool">
+    <h1 class="tool-title">Base64 Encoder / Decoder</h1>
+    <p style="color:var(--muted)">Encode text to Base64 or decode Base64 strings. Client-side only.</p>
+    <!-- Ad Top -->
+
+    <section class="panel">
+      <label for="b64-input">Input</label>
+      <textarea id="b64-input" class="code" placeholder="Enter text or Base64"></textarea>
+      <div class="tool-actions">
+        <button id="b64-encode" class="btn">Encode</button>
+        <button id="b64-decode" class="btn btn-ghost">Decode</button>
+        <button id="b64-copy" class="btn btn-small">Copy</button>
+        <button id="b64-reset" class="btn btn-ghost">Reset</button>
+      </div>
+    </section>
+
+    <section class="panel">
+    <!-- Ad Middle -->
+      <label for="b64-output">Output</label>
+      <textarea id="b64-output" class="code" readonly></textarea>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <!-- Ad Bottom -->
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

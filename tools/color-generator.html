@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Color Generator — Toolify Hub</title>
+  <meta name="description" content="Generate random colors, view HEX/RGB/HSL and copy to clipboard on Toolify Hub.">
+  <link rel="canonical" href="/tools/color-generator.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Color Generator — Toolify Hub">
+  <meta property="og:description" content="Generate random colors, view HEX/RGB/HSL and copy to clipboard. Build palettes fast on Toolify Hub.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="color-generator">
+  <div id="site-header"></div>
+
+  <main class="container tool">
+    <h1 class="tool-title" data-i18n="tool.color_generator">Color Generator</h1>
+    <p style="color:var(--muted)" data-i18n="cg.lead">Generate colors and palettes.</p>
+
+    <section class="panel">
+      <div class="color-row">
+        <div id="color-swatch" class="swatch" aria-hidden="true"></div>
+        <div class="color-values">
+          <div><label data-i18n="cg.label.hex">HEX</label><input id="hex" readonly></div>
+          <div><label data-i18n="cg.label.rgb">RGB</label><input id="rgb" readonly></div>
+          <div><label data-i18n="cg.label.hsl">HSL</label><input id="hsl" readonly></div>
+        </div>
+      </div>
+
+      <div class="tool-actions">
+        <button id="gen-color" class="btn" data-i18n="cg.btn.generate">Generate</button>
+        <button id="copy-hex" class="btn btn-small" data-i18n="cg.btn.copy_hex">Copy HEX</button>
+        <button id="copy-rgb" class="btn btn-small btn-ghost" data-i18n="cg.btn.copy_rgb">Copy RGB</button>
+      </div>
+    </section>
+    <!-- Ad Middle -->
+  </main>
+
+  <div id="site-footer"></div>
+  <!-- Ad Bottom -->
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

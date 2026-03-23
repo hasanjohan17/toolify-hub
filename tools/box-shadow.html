@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CSS Box Shadow Generator — Toolify Hub</title>
+  <meta name="description" content="Interactive CSS box-shadow builder with live preview and copyable CSS on Toolify Hub.">
+  <link rel="canonical" href="/tools/box-shadow.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CSS Box Shadow Generator — Toolify Hub">
+  <meta property="og:description" content="Interactive CSS box-shadow builder with live preview and copyable CSS on Toolify Hub.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="box-shadow">
+  <div id="site-header"></div>
+
+  <main class="container tool">
+    <h1 class="tool-title" data-i18n="tool.box_shadow">CSS Box Shadow Generator</h1>
+    <p style="color:var(--muted)" data-i18n="bs.lead">Interactive shadow builder with live preview.</p>
+
+    <div class="tool-grid">
+      <section class="panel">
+        <label for="shadow-x" data-i18n="bs.label.h">Horizontal (px)</label>
+        <input id="shadow-x" type="range" min="-50" max="100" value="10">
+
+        <label for="shadow-y" data-i18n="bs.label.v">Vertical (px)</label>
+        <input id="shadow-y" type="range" min="-50" max="100" value="10">
+
+        <label for="shadow-blur" data-i18n="bs.label.blur">Blur (px)</label>
+        <input id="shadow-blur" type="range" min="0" max="200" value="20">
+
+        <label for="shadow-spread" data-i18n="bs.label.spread">Spread (px)</label>
+        <input id="shadow-spread" type="range" min="-100" max="100" value="0">
+
+        <label for="shadow-color" data-i18n="bs.label.color">Color</label>
+        <input id="shadow-color" type="color" value="#000000">
+
+        <label><input id="shadow-inset" type="checkbox"> <span data-i18n="bs.label.inset">Inset</span></label>
+
+        <div class="tool-actions">
+          <button id="copy-css" class="btn" data-i18n="bs.btn.copy">Copy CSS</button>
+          <button id="reset-shadow" class="btn btn-ghost" data-i18n="bs.btn.reset">Reset</button>
+        </div>
+      </section>
+
+      <section class="panel preview-panel">
+        <label data-i18n="bs.label.preview">Preview</label>
+        <div class="preview"><div id="preview-box" class="box"></div></div>
+        <label data-i18n="bs.label.output">CSS Output</label>
+        <textarea id="css-output" class="code" readonly></textarea>
+      </section>
+    </div>
+    <!-- Ad Middle -->
+  </main>
+
+  <div id="site-footer"></div>
+  <!-- Ad Bottom -->
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

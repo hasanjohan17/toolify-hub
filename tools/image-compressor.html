@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Image Compressor (Demo) — Toolify Hub</title>
+  <meta name="description" content="Frontend image compression demo — reduce JPEG quality in the browser.">
+  <link rel="canonical" href="/tools/image-compressor.html">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+</head>
+<body data-page="tool-image-compressor">
+  <div id="site-header"></div>
+  <main class="container tool">
+    <h1 class="tool-title" data-i18n="tool.image_compressor">Image Compressor (Demo)</h1>
+    <p style="color:var(--muted)" data-i18n="ic.lead">Upload an image and compress it in the browser.</p>
+
+    <section class="panel">
+      <input id="img-file" type="file" accept="image/*">
+      <label for="quality" data-i18n="ic.label.quality">Quality</label>
+      <input id="img-quality" type="range" min="10" max="100" value="80">
+      <div class="tool-actions">
+        <button id="compress-btn" class="btn" data-i18n="ic.btn.compress">Compress</button>
+        <a id="download-img" class="btn btn-small" href="#" download data-i18n="ic.btn.download">Download</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <label>Preview</label>
+      <img id="img-preview" alt="preview" loading="lazy" style="max-width:100%;border-radius:10px">
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
