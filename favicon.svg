@@ -1,30 +1,66 @@
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-  <!-- Gradient background -->
   <defs>
-    <linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'>
-      <stop offset='0%' style='stop-color:#3b82f6;stop-opacity:1' />
-      <stop offset='50%' style='stop-color:#6366f1;stop-opacity:1' />
-      <stop offset='100%' style='stop-color:#8b5cf6;stop-opacity:1' />
+    <!-- Quarx AI gradient: Teal to Purple -->
+    <linearGradient id='quarxGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' style='stop-color:#00D4D4;stop-opacity:1' />
+      <stop offset='50%' style='stop-color:#5B5CE1;stop-opacity:1' />
+      <stop offset='100%' style='stop-color:#9D4EDD;stop-opacity:1' />
     </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id='glow2'>
+      <feGaussianBlur stdDeviation='1.5' result='coloredBlur'/>
+      <feMerge>
+        <feMergeNode in='coloredBlur'/>
+        <feMergeNode in='SourceGraphic'/>
+      </feMerge>
+    </filter>
   </defs>
   
-  <!-- Rounded square background -->
-  <rect width='100' height='100' rx='20' fill='url(#grad1)'/>
+  <!-- Background with gradient -->
+  <rect width='100' height='100' fill='url(#quarxGrad)' rx='0'/>
   
-  <!-- Wrench icon base -->
-  <g transform='translate(35, 30)'>
-    <!-- Wrench -->
-    <path d='M8 2 L18 12 M15 14 L25 24 M12 8 C12 12 9 15 5 15 C1 15 0 12 0 12 Z' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/>
-    <!-- Settings gear -->
-    <circle cx='28' cy='28' r='4' fill='#a78bfa' opacity='0.8'/>
-    <circle cx='28' cy='28' r='6' fill='none' stroke='#a78bfa' stroke-width='1' opacity='0.6'/>
+  <!-- Atomic/Quantum structure - outer rings -->
+  <circle cx='50' cy='50' r='38' fill='none' stroke='rgba(255,255,255,0.3)' stroke-width='1.5'/>
+  <circle cx='50' cy='50' r='28' fill='none' stroke='rgba(255,255,255,0.2)' stroke-width='1.2'/>
+  <circle cx='50' cy='50' r='18' fill='none' stroke='rgba(255,255,255,0.15)' stroke-width='1'/>
+  
+  <!-- Orbiting electrons (quantum particles) -->
+  <circle cx='88' cy='50' r='1.2' fill='#FFD700' opacity='0.85'/>
+  <circle cx='35' cy='14' r='1.2' fill='#FFD700' opacity='0.85'/>
+  <circle cx='12' cy='60' r='1.2' fill='#FFD700' opacity='0.85'/>
+  <circle cx='60' cy='18' r='0.9' fill='#00FFFF' opacity='0.75'/>
+  <circle cx='75' cy='75' r='0.9' fill='#00FFFF' opacity='0.75'/>
+  <circle cx='22' cy='40' r='0.9' fill='#00FFFF' opacity='0.75'/>
+  
+  <!-- Central nucleus circle (bright cyan) -->
+  <circle cx='50' cy='50' r='19' fill='#00D4D4' filter='url(#glow2)' opacity='0.95'/>
+  
+  <!-- Nucleus border (darker purple ring) -->
+  <circle cx='50' cy='50' r='19' fill='none' stroke='#9D4EDD' stroke-width='1.5' opacity='0.9'/>
+  
+  <!-- Inner glow circle -->
+  <circle cx='50' cy='50' r='17.5' fill='none' stroke='#C8FFFF' stroke-width='0.8' opacity='0.6'/>
+  
+  <!-- Main Q letter -->
+  <text x='50' y='54' font-family='Arial, sans-serif' font-size='38' font-weight='900' 
+        fill='#FFFFFF' text-anchor='middle' dominant-baseline='middle'>Q</text>
+  
+  <!-- Quantum particles (small dots around nucleus) -->
+  <g opacity='0.8'>
+    <circle cx='62' cy='28' r='0.6' fill='#FFFF99'/>
+    <circle cx='72' cy='38' r='0.6' fill='#FFFF99'/>
+    <circle cx='75' cy='52' r='0.6' fill='#FFFF99'/>
+    <circle cx='66' cy='68' r='0.6' fill='#FFFF99'/>
+    <circle cx='42' cy='72' r='0.6' fill='#FFFF99'/>
+    <circle cx='25' cy='62' r='0.6' fill='#FFFF99'/>
+    <circle cx='22' cy='42' r='0.6' fill='#FFFF99'/>
+    <circle cx='32' cy='22' r='0.6' fill='#FFFF99'/>
   </g>
   
-  <!-- Center T letter with glow effect -->
-  <text x='50' y='62' font-family='Inter, Arial' font-weight='800' font-size='52' fill='white' text-anchor='middle' letter-spacing='-2'>T</text>
+  <!-- Outer aura -->
+  <circle cx='50' cy='50' r='20.5' fill='none' stroke='#C8FFFF' stroke-width='0.7' opacity='0.4'/>
   
-  <!-- Accent dots -->
-  <circle cx='15' cy='20' r='2' fill='#60a5fa' opacity='0.7'/>
-  <circle cx='85' cy='75' r='1.5' fill='#c4b5fd' opacity='0.6'/>
-  <circle cx='78' cy='25' r='1.5' fill='#ddd6fe' opacity='0.5'/>
+  <!-- Subtle border accent -->
+  <circle cx='50' cy='50' r='21.5' fill='none' stroke='#FFFFFF' stroke-width='0.5' opacity='0.2'/>
 </svg>
