@@ -5,7 +5,7 @@
   const headerHTML = `
   <nav class="nav">
     <div class="brand">
-      <a href="/" class="site-brand" data-i18n="brand">Toolify Hub</a>
+      <a href="./" class="site-brand" data-i18n="brand">Toolify Hub</a>
       <span class="muted" data-i18n="tagline">Free online tools</span>
     </div>
     <div style="display:flex;align-items:center;gap:8px">
@@ -14,16 +14,16 @@
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">☰</button>
     </div>
     <div class="nav-links" id="nav-links">
-      <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/categories/developer-tools.html" data-i18n="nav.developer">Developer</a>
-      <a href="/categories/daily-tools.html" data-i18n="nav.daily">Daily</a>
+      <a href="./" data-i18n="nav.home">Home</a>
+      <a href="./categories/developer-tools.html" data-i18n="nav.developer">Developer</a>
+      <a href="./categories/daily-tools.html" data-i18n="nav.daily">Daily</a>
     </div>
   </nav>
   <div class="nav-mobile hidden" id="nav-mobile">
     <div class="nav-links">
-      <a href="/" data-i18n="nav.home">Home</a>
-      <a href="/categories/developer-tools.html" data-i18n="nav.developer">Developer Tools</a>
-      <a href="/categories/daily-tools.html" data-i18n="nav.daily">Daily Tools</a>
+      <a href="./" data-i18n="nav.home">Home</a>
+      <a href="./categories/developer-tools.html" data-i18n="nav.developer">Developer Tools</a>
+      <a href="./categories/daily-tools.html" data-i18n="nav.daily">Daily Tools</a>
     </div>
   </div>`;
 
@@ -39,16 +39,16 @@
       <div class="footer-section">
         <h4 class="footer-heading" data-i18n="footer.pages">Pages</h4>
         <nav class="footer-links">
-          <a href="/about.html" data-i18n="footer.about">About</a>
-          <a href="/privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
-          <a href="/contact.html" data-i18n="footer.contact">Contact</a>
+          <a href="./about.html" data-i18n="footer.about">About</a>
+          <a href="./privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+          <a href="./contact.html" data-i18n="footer.contact">Contact</a>
         </nav>
       </div>
       <div class="footer-section">
         <h4 class="footer-heading" data-i18n="footer.categories">Categories</h4>
         <nav class="footer-links">
-          <a href="/categories/developer-tools.html" data-i18n="home.filter.developer">Developer</a>
-          <a href="/categories/daily-tools.html" data-i18n="home.filter.daily">Daily Tools</a>
+          <a href="./categories/developer-tools.html" data-i18n="home.filter.developer">Developer</a>
+          <a href="./categories/daily-tools.html" data-i18n="home.filter.daily">Daily Tools</a>
         </nav>
       </div>
     </div>
@@ -694,3 +694,4 @@
   }
 
 })();
+
