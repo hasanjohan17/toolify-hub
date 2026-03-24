@@ -32,7 +32,23 @@
     <div class="footer-content">
       <div class="footer-section">
         <div class="footer-branding">
-          <span data-i18n="brand">Quarx AI</span>
+          <div class="footer-logo">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" class="footer-icon">
+              <defs>
+                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00D4D4;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#9D4EDD;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="60" r="55" fill="url(#grad)" opacity="0.1"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="url(#grad)" stroke-width="2"/>
+              <text x="60" y="75" font-size="48" font-weight="bold" text-anchor="middle" fill="url(#grad)" letter-spacing="-2">Q</text>
+              <circle cx="75" cy="45" r="4" fill="#00D4D4" opacity="0.8"/>
+              <circle cx="82" cy="52" r="3" fill="#9D4EDD" opacity="0.6"/>
+              <circle cx="78" cy="62" r="2.5" fill="#00D4D4" opacity="0.7"/>
+            </svg>
+            <span data-i18n="brand">Quarx AI</span>
+          </div>
           <p class="footer-tagline" data-i18n="tagline">Free online tools</p>
         </div>
       </div>

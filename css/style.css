@@ -90,13 +90,17 @@ label{display:block;font-size:.86rem;color:var(--muted);margin-bottom:8px}
 /* Smooth theme change for inputs/placeholders */
 input, textarea, select, .code{transition:background .18s ease, color .12s ease, border-color .12s ease}
 
-#site-footer{color:var(--muted);text-align:center;margin-top:40px;padding:28px 18px;background:linear-gradient(180deg, transparent, rgba(99,102,241,0.02));border-top:1px solid rgba(99,102,241,0.08)}
+#site-footer{color:var(--muted);text-align:center;margin-top:40px;padding:28px 18px;background:linear-gradient(135deg, rgba(99,102,241,0.03) 0%, rgba(0,212,212,0.02) 100%);border-top:1px solid rgba(99,102,241,0.1);backdrop-filter:blur(10px)}
 
-.footer-content{max-width:var(--max-width);margin:0 auto 20px;display:grid;grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));gap:24px;padding:0 20px}
+.footer-content{max-width:var(--max-width);margin:0 auto 20px;display:grid;grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));gap:24px;padding:0 20px;align-items:start}
 
-.footer-section{text-align:left}
+.footer-section{text-align:left;padding:12px 0}
 
 .footer-branding{margin-bottom:12px}
+
+.footer-logo{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+
+.footer-icon{width:32px;height:32px;flex-shrink:0;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1))}
 
 .footer-branding span{display:block;font-weight:700;color:var(--text);font-size:1.1rem;margin-bottom:4px}
 
@@ -110,13 +114,15 @@ input, textarea, select, .code{transition:background .18s ease, color .12s ease,
 
 .footer-links a:hover{color:var(--accent)}
 
-.footer-bottom{max-width:var(--max-width);margin:0 auto;padding:0 20px;padding-top:20px;border-top:1px solid rgba(99,102,241,0.06);text-align:center;font-size:0.85rem}
+.footer-bottom{max-width:var(--max-width);margin:0 auto;padding:20px;border-top:1px solid rgba(99,102,241,0.08);text-align:center;font-size:0.85rem;background:linear-gradient(to bottom, transparent, rgba(99,102,241,0.01))}
 
-.footer-bottom p{margin:0;color:var(--muted)}
+.footer-bottom p{margin:0;color:var(--muted);opacity:0.8}
 
 [dir="rtl"] .footer-section{text-align:right}
 
 [dir="rtl"] .footer-links{text-align:right}
+
+[dir="rtl"] .footer-logo{flex-direction:row-reverse}
 
 /* responsive nav */
 .nav-toggle{display:none;border:0;background:transparent;padding:8px;border-radius:8px;cursor:pointer;color:var(--text);font-size:1.2rem;transition:transform .18s ease}
