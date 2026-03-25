@@ -14,12 +14,13 @@
   <script>!function(){var t=localStorage.getItem('devtools-theme'),e=t||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');if('dark'===e){if(!document.documentElement.style.colorScheme)document.documentElement.style.colorScheme='dark';document.body.setAttribute('data-theme','dark')}else{document.documentElement.style.colorScheme='light';document.body.removeAttribute('data-theme')}}()</script>
   <link rel="preload" href="./css/style.css" as="style" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./css/style.css"></noscript>
+  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 </head>
 <body data-page="tool-tts">
   <div id="site-header"></div>
   <main class="container tool">
-    <h1 class="tool-title">Text to Speech</h1>
-    <p style="color:var(--muted)">Use your browser's SpeechSynthesis to read text aloud.</p>
+    <h1 class="tool-title" data-i18n="tts.title">Text to Speech</h1>
+    <p style="color:var(--muted)" data-i18n="tts.description">Use voice synthesis to read text aloud with download support.</p>
 
     <section class="panel">
       <label for="tts-input" data-i18n="tts.label.text">Text</label>
@@ -32,44 +33,51 @@
         <div style="width:120px">
           <label for="tts-lang" data-i18n="tts.lang.label">Language</label>
           <select id="tts-lang" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.06)">
-            <option value="any">Any</option>
+            <option value="any" selected>Any</option>
             <option value="en">English</option>
-            <option value="ar">Arabic</option>
+            <option value="ar">العربية</option>
           </select>
         </div>
         <div style="width:120px">
           <label for="tts-gender" data-i18n="tts.gender.label">Gender</label>
           <select id="tts-gender" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.06)">
-            <option value="any">Any</option>
+            <option value="any" selected>Any</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
           </select>
         </div>
         <div style="width:120px">
           <label for="tts-rate" data-i18n="tts.rate.label">Rate</label>
-          <input id="tts-rate" type="range" min="0.6" max="1.4" step="0.05" value="0.95">
+          <input id="tts-rate" type="range" min="0.5" max="1.5" step="0.05" value="1">
         </div>
         <div style="width:120px">
           <label for="tts-pitch" data-i18n="tts.pitch.label">Pitch</label>
-          <input id="tts-pitch" type="range" min="0.6" max="2" step="0.05" value="1">
+          <input id="tts-pitch" type="range" min="0.5" max="2" step="0.05" value="1">
         </div>
       </div>
       <div class="tool-actions" style="margin-top:12px">
         <button id="tts-speak" class="btn" data-i18n="tts.btn.speak">Speak</button>
         <button id="tts-stop" class="btn btn-ghost" data-i18n="tts.btn.stop">Stop</button>
       </div>
-    </section>
 
-    <section class="panel">
-      <label style="display:block;margin-bottom:12px">Audio Player</label>
-      <audio id="tts-audio" controls style="width:100%;margin-bottom:12px;display:none;"></audio>
-      <div class="tool-actions">
-        <button id="tts-download" class="btn btn-small" download="speech.mp3" disabled>Download Audio</button>
+      <div style="margin-top:16px">
+        <label style="display:block;margin-bottom:8px">Audio Player & Download</label>
+        <audio id="tts-audio" controls style="width:100%;margin-bottom:12px;display:none;"></audio>
+        <div class="tool-actions">
+          <button id="tts-download" class="btn btn-small" disabled style="display:none;">Download MP3</button>
+        </div>
       </div>
     </section>
   </main>
   <div id="site-footer"></div>
   <script src="./js/main.js" defer></script>
-</body>
-</html>
+  <script>
+    // بعد تحميل صفحة الـ TTS
+    document.addEventListener('DOMContentLoaded', function(){
+      // تأكد من تحميل ResponsiveVoice
+      if(typeof responsiveVoice === 'undefined'){
+        console.warn('ResponsiveVoice not loaded');
+      }
+    });
+  </script>
 

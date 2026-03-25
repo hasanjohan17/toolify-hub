@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <base href="../../">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>نطق النص — Quarx AI | تحويل النصوص إلى كلام</title>
+  <meta name="description" content="نطق النص - أداة مجانية لتحويل النصوص إلى كلام بصوت طبيعي مع دعم كامل للعربية.">
+  <meta name="keywords" content="نطق النص, text to speech, تحويل نص لكلام, قارئ النصوص, تحويل عربي">
+  <link rel="canonical" href="https://quarxai.com/ar/tools/text-to-speech.html">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../favicon.png">
+  <script>!function(){var t=localStorage.getItem('devtools-theme'),e=t||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');if('dark'===e){if(!document.documentElement.style.colorScheme)document.documentElement.style.colorScheme='dark';document.body.setAttribute('data-theme','dark')}else{document.documentElement.style.colorScheme='light';document.body.removeAttribute('data-theme')}}()</script>
+  <link rel="preload" href="../../css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../../css/style.css"></noscript>
+  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+</head>
+<body data-page="tool-tts">
+  <div id="site-header"></div>
+  <main class="container tool">
+    <h1 class="tool-title" data-i18n="tts.title">تحويل النص إلى كلام</h1>
+    <p style="color:var(--muted)" data-i18n="tts.description">استخدم تقنية التحويل الصوتي لقراءة النصوص بصوت طبيعي مع إمكانية التحميل.</p>
+
+    <section class="panel">
+      <label for="tts-input" data-i18n="tts.label.text">النص</label>
+      <textarea id="tts-input" class="code" data-i18n-placeholder="tts.placeholder" placeholder="أدخل النص المراد قراءته"></textarea>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap">
+        <div style="flex:1;min-width:160px">
+          <label for="voice-select" data-i18n="tts.voice.label">الصوت</label>
+          <select id="voice-select" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.06)"></select>
+        </div>
+        <div style="width:120px">
+          <label for="tts-lang" data-i18n="tts.lang.label">اللغة</label>
+          <select id="tts-lang" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.06)">
+            <option value="any" selected>أي لغة</option>
+            <option value="en">English</option>
+            <option value="ar">عربي</option>
+          </select>
+        </div>
+        <div style="width:120px">
+          <label for="tts-gender" data-i18n="tts.gender.label">الجنس</label>
+          <select id="tts-gender" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.06)">
+            <option value="any" selected>أي</option>
+            <option value="female">أنثى</option>
+            <option value="male">ذكر</option>
+          </select>
+        </div>
+        <div style="width:120px">
+          <label for="tts-rate" data-i18n="tts.rate.label">السرعة</label>
+          <input id="tts-rate" type="range" min="0.5" max="1.5" step="0.05" value="1">
+        </div>
+        <div style="width:120px">
+          <label for="tts-pitch" data-i18n="tts.pitch.label">نبرة الصوت</label>
+          <input id="tts-pitch" type="range" min="0.5" max="2" step="0.05" value="1">
+        </div>
+      </div>
+      <div class="tool-actions" style="margin-top:12px">
+        <button id="tts-speak" class="btn" data-i18n="tts.btn.speak">تشغيل</button>
+        <button id="tts-stop" class="btn btn-ghost" data-i18n="tts.btn.stop">إيقاف</button>
+      </div>
+
+      <div style="margin-top:16px">
+        <label style="display:block;margin-bottom:8px">مشغل الصوت والتحميل</label>
+        <audio id="tts-audio" controls style="width:100%;margin-bottom:12px;display:none;"></audio>
+        <div class="tool-actions">
+          <button id="tts-download" class="btn btn-small" disabled style="display:none;">تحميل MP3</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="../../js/main.js" defer></script>
+  <script>
+    // تأكد من تحميل ResponsiveVoice
+    document.addEventListener('DOMContentLoaded', function(){
+      if(typeof responsiveVoice === 'undefined'){
+        console.warn('ResponsiveVoice not loaded');
+      }
+    });
+  </script>
+</body>
+</html>

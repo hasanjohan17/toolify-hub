@@ -94,21 +94,20 @@
         'contact.label.name':'Name','contact.label.email':'Email','contact.label.message':'Message','contact.btn.send':'Send','contact.btn.reset':'Reset',
         'contact.placeholder.name':'Your name','contact.placeholder.email':'you@example.com','contact.placeholder.message':'How can we help?',
         'contact.social.title':'Connect with Us','contact.social.lead':'You can also reach us on social media:',
-        'tts.title':'Text to Speech','tts.description':'Use your browser\'s SpeechSynthesis to read text aloud.','tts.label.text':'Text','tts.placeholder':'Enter text to speak','tts.btn.speak':'Speak','tts.btn.stop':'Stop','tts.voice.label':'Voice','tts.rate.label':'Rate','tts.pitch.label':'Pitch',
-        'tts.lang.label':'Language','tts.gender.label':'Gender',
-        'tool.word_counter':'Word Counter','tool.color_generator':'Color Generator','tool.box_shadow':'Box Shadow','tool.password_generator':'Password Generator','tool.image_compressor':'Image Compressor','tool.qr_code':'QR Code','tool.age_calculator':'Age Calculator','tool.unit_converter':'Unit Converter','tool.pomodoro':'Pomodoro',
+        'cc.lead':'Convert Arab currencies to USD with live exchange rates.','cc.label.currency':'From Currency','cc.label.amount':'Amount','cc.btn.convert':'Convert','cc.btn.reset':'Reset',
+        'tool.word_counter':'Word Counter','tool.color_generator':'Color Generator','tool.box_shadow':'Box Shadow','tool.password_generator':'Password Generator','tool.image_compressor':'Image Compressor','tool.qr_code':'QR Code','tool.images_to_pdf':'Images to PDF','tool.currency_converter':'Currency Converter','tool.unit_converter':'Unit Converter','tool.pomodoro':'Pomodoro',
         'wc.lead':'Counts words, characters and estimates read time.','wc.label.text':'Text','wc.placeholder':'Paste your text here...','wc.stat.words':'Words','wc.stat.chars':'Characters','wc.stat.sentences':'Sentences','wc.stat.read':'Read','wc.btn.copy':'Copy Text','wc.btn.clear':'Clear','wc.btn.reset':'Reset',
         'cg.lead':'Generate colors and palettes.','cg.label.hex':'HEX','cg.label.rgb':'RGB','cg.label.hsl':'HSL','cg.btn.generate':'Generate','cg.btn.copy_hex':'Copy HEX','cg.btn.copy_rgb':'Copy RGB',
         'bs.lead':'Interactive shadow builder with live preview.','bs.label.h':'Horizontal (px)','bs.label.v':'Vertical (px)','bs.label.blur':'Blur (px)','bs.label.spread':'Spread (px)','bs.label.color':'Color','bs.label.inset':'Inset','bs.label.preview':'Preview','bs.label.output':'CSS Output','bs.btn.copy':'Copy CSS','bs.btn.reset':'Reset',
         'pw.lead':'Create strong passwords with options.','pw.label.length':'Length','pw.opt.upper':'Include uppercase','pw.opt.lower':'Include lowercase','pw.opt.numbers':'Include numbers','pw.opt.symbols':'Include symbols','pw.btn.generate':'Generate','pw.btn.copy':'Copy','pw.label.output':'Password',
         'ic.lead':'Upload an image and compress it in the browser.','ic.label.quality':'Quality','ic.btn.compress':'Compress','ic.btn.download':'Download',
-        'age.lead':'Compute age from a birth date.','age.label.birthdate':'Birthdate','age.btn.calc':'Calculate','age.btn.reset':'Reset','age.label.result':'Result',
+        'i2pdf.lead':'Combine multiple images into a single PDF file.','i2pdf.label.images':'Images','i2pdf.label.pagesize':'Page Size','i2pdf.label.orientation':'Orientation','i2pdf.opt.portrait':'Portrait','i2pdf.opt.landscape':'Landscape','i2pdf.btn.upload':'Choose Images','i2pdf.btn.generate':'Generate PDF','i2pdf.btn.download':'Download PDF','i2pdf.btn.reset':'Reset',
         'uc.lead':'Convert between common length and weight units.','uc.label.type':'Type','uc.opt.length':'Length','uc.opt.weight':'Weight','uc.placeholder.value':'Value','uc.btn.convert':'Convert','uc.btn.copy':'Copy','uc.label.result':'Result',
         'pom.lead':'25/5 minute focus cycles with notifications.','pom.btn.start':'Start','pom.btn.stop':'Stop','pom.btn.reset':'Reset',
         'qr.lead':'Enter text or a URL to create a QR code.','qr.label.input':'Text or URL','qr.placeholder.input':'Enter URL or text...','qr.btn.generate':'Generate','qr.btn.copy':'Copy Image URL','qr.label.preview':'QR Preview',
-        'home.title':'Free Online Tools for Everyday Use','home.lead':'Quarx AI offers lightweight, fast and free web tools for developers and non-technical users — all in one place.','home.search.placeholder':'Search tools (e.g. json, qr, word)','home.filter.all':'All Categories','home.filter.developer':'Developer Tools','home.filter.daily':'Daily Tools','home.cat.developer':'Developer Tools','home.cat.developer.lead':'JSON formatter, CSS shadow, Base64, HTML minifier, password generator and more.','home.cat.daily':'Daily Tools','home.cat.daily.lead':'Word counter, QR generator, age calculator, pomodoro and handy utilities.','home.browse':'Browse','home.open':'Open','home.pop.json.lead':'Format and validate JSON.','home.pop.word.lead':'Quickly count words and chars.','home.pop.color.lead':'Generate and copy HEX/RGB/HSL values.','home.pop.qr.lead':'Generate QR codes quickly.','home.pop.image.lead':'Compress images in your browser.',
+        'home.title':'Free Online Tools for Everyday Use','home.lead':'Quarx AI offers lightweight, fast and free web tools for developers and non-technical users — all in one place.','home.search.placeholder':'Search tools (e.g. json, qr, word)','home.filter.all':'All Categories','home.filter.developer':'Developer Tools','home.filter.daily':'Daily Tools','home.cat.developer':'Developer Tools','home.cat.developer.lead':'JSON formatter, CSS shadow, Base64, HTML minifier, password generator and more.','home.cat.daily':'Daily Tools','home.cat.daily.lead':'Word counter, QR generator, images to PDF, pomodoro and handy utilities.','home.browse':'Browse','home.open':'Open','home.pop.json.lead':'Format and validate JSON.','home.pop.word.lead':'Quickly count words and chars.','home.pop.color.lead':'Generate and copy HEX/RGB/HSL values.','home.pop.qr.lead':'Generate QR codes quickly.','home.pop.image.lead':'Compress images in your browser.',
         'cat.dev.title':'Developer Tools','cat.dev.lead':'Helpful utilities for developers and students.','cat.dev.json.desc':'Format and validate JSON.','cat.dev.shadow.desc':'Build box-shadows visually.','cat.dev.color.desc':'Generate colors and palettes.','cat.dev.base64.desc':'Encode or decode Base64 strings.','cat.dev.html.desc':'Minify HTML for production.','cat.dev.pwd.desc':'Create secure random passwords.',
-        'cat.daily.title':'Daily Tools','cat.daily.lead':'Simple utilities for everyday users.','cat.daily.word.desc':'Count words and characters.','cat.daily.img.desc':'Frontend image compression demo.','cat.daily.tts.desc':'Read text aloud with browser API.','cat.daily.qr.desc':'Generate QR codes quickly.','cat.daily.age.desc':'Calculate age from birthdate.','cat.daily.unit.desc':'Length, weight and more.','cat.daily.pom.desc':'Simple focus timer with notifications.'
+        'cat.daily.title':'Daily Tools','cat.daily.lead':'Simple utilities for everyday users.','cat.daily.word.desc':'Count words and characters.','cat.daily.img.desc':'Frontend image compression demo.','cat.daily.cc.desc':'Convert Arab currencies to USD easily.','cat.daily.qr.desc':'Generate QR codes quickly.','cat.daily.img2pdf.desc':'Combine multiple images into a PDF.','cat.daily.unit.desc':'Length, weight and more.','cat.daily.pom.desc':'Simple focus timer with notifications.'
       },
       ar: {
         'brand': 'Quarx AI', 'tagline':'أدوات مجانية على الإنترنت',
@@ -120,22 +119,21 @@
         'contact.label.name':'الاسم','contact.label.email':'البريد الإلكتروني','contact.label.message':'الرسالة','contact.btn.send':'إرسال','contact.btn.reset':'إعادة ضبط',
         'contact.placeholder.name':'اسمك','contact.placeholder.email':'you@example.com','contact.placeholder.message':'كيف يمكننا المساعدة؟',
         'contact.social.title':'تواصل معنا','contact.social.lead':'يمكنك أيضًا الوصول إلينا عبر وسائل التواصل:',
-        'tts.title':'تحويل النص إلى كلام','tts.description':'استخدم متصفحك لقراءة النص بصوت مسموع.','tts.label.text':'النص','tts.placeholder':'أدخل النص المراد قراءته','tts.btn.speak':'تشغيل','tts.btn.stop':'إيقاف','tts.voice.label':'الصوت','tts.rate.label':'السرعة','tts.pitch.label':'نبرة الصوت',
-        'tts.lang.label':'اللغة','tts.gender.label':'الجنس',
-        'tool.word_counter':'عداد الكلمات','tool.color_generator':'مولد الألوان','tool.box_shadow':'ظل الصندوق','tool.password_generator':'مولد كلمات المرور','tool.image_compressor':'ضغط الصورة','tool.qr_code':'رمز الاستجابة السريعة','tool.age_calculator':'حاسبة العمر','tool.unit_converter':'محول الوحدات','tool.pomodoro':'مؤقت بومودورو','tool.json_formatter':'JSON Formatter','tool.text_to_speech':'نص إلى صوت',
+        'cc.lead':'حوّل العملات العربية إلى الدولار الأمريكي بأسعار صرف حالية.','cc.label.currency':'من العملة','cc.label.amount':'المبلغ','cc.btn.convert':'تحويل','cc.btn.reset':'إعادة ضبط',
+        'tool.word_counter':'عداد الكلمات','tool.color_generator':'مولد الألوان','tool.box_shadow':'ظل الصندوق','tool.password_generator':'مولد كلمات المرور','tool.image_compressor':'ضغط الصورة','tool.qr_code':'رمز الاستجابة السريعة','tool.images_to_pdf':'الصور إلى PDF','tool.currency_converter':'محول العملات','tool.unit_converter':'محول الوحدات','tool.pomodoro':'مؤقت بومودورو','tool.json_formatter':'JSON Formatter',
         'wc.lead':'يحسب الكلمات والأحرف ويقدّر زمن القراءة.','wc.label.text':'النص','wc.placeholder':'ألصق النص هنا...','wc.stat.words':'الكلمات','wc.stat.chars':'الأحرف','wc.stat.sentences':'الجمل','wc.stat.read':'وقت القراءة','wc.btn.copy':'نسخ النص','wc.btn.clear':'مسح','wc.btn.reset':'إعادة ضبط',
         'cg.lead':'توليد ألوان ولوحات ألوان.','cg.label.hex':'HEX','cg.label.rgb':'RGB','cg.label.hsl':'HSL','cg.btn.generate':'توليد','cg.btn.copy_hex':'نسخ HEX','cg.btn.copy_rgb':'نسخ RGB',
         'bs.lead':'أداة تفاعلية لإنشاء الظل مع معاينة مباشرة.','bs.label.h':'أفقي (بكسل)','bs.label.v':'عمودي (بكسل)','bs.label.blur':'تمويه (بكسل)','bs.label.spread':'انتشار (بكسل)','bs.label.color':'اللون','bs.label.inset':'داخلي','bs.label.preview':'معاينة','bs.label.output':'مخرجات CSS','bs.btn.copy':'نسخ CSS','bs.btn.reset':'إعادة ضبط',
         'pw.lead':'إنشاء كلمات مرور قوية مع خيارات.','pw.label.length':'الطول','pw.opt.upper':'تضمين أحرف كبيرة','pw.opt.lower':'تضمين أحرف صغيرة','pw.opt.numbers':'تضمين أرقام','pw.opt.symbols':'تضمين رموز','pw.btn.generate':'توليد','pw.btn.copy':'نسخ','pw.label.output':'كلمة المرور',
         'ic.lead':'حمّل صورة واضغطها في المتصفح.','ic.label.quality':'الجودة','ic.btn.compress':'ضغط','ic.btn.download':'تحميل',
-        'age.lead':'احسب العمر من تاريخ الميلاد.','age.label.birthdate':'تاريخ الميلاد','age.btn.calc':'احسب','age.btn.reset':'إعادة ضبط','age.label.result':'النتيجة',
+        'i2pdf.lead':'دمج صور متعددة في ملف PDF واحد.','i2pdf.label.images':'الصور','i2pdf.label.pagesize':'حجم الصفحة','i2pdf.label.orientation':'الاتجاه','i2pdf.opt.portrait':'عمودي','i2pdf.opt.landscape':'أفقي','i2pdf.btn.upload':'اختر الصور','i2pdf.btn.generate':'توليد PDF','i2pdf.btn.download':'تحميل PDF','i2pdf.btn.reset':'إعادة ضبط',
         'uc.lead':'تحويل بين وحدات الطول والوزن الشائعة.','uc.label.type':'النوع','uc.opt.length':'الطول','uc.opt.weight':'الوزن','uc.placeholder.value':'القيمة','uc.btn.convert':'تحويل','uc.btn.copy':'نسخ','uc.label.result':'النتيجة',
         'pom.lead':'دورات تركيز 25/5 دقيقة مع إشعارات.','pom.btn.start':'ابدأ','pom.btn.stop':'إيقاف','pom.btn.reset':'إعادة ضبط',
 
         'qr.lead':'أدخل نصًا أو عنوان URL لإنشاء رمز استجابة سريعة.','qr.label.input':'نص أو رابط','qr.placeholder.input':'أدخل رابطًا أو نصًا...','qr.btn.generate':'توليد','qr.btn.copy':'نسخ رابط الصورة','qr.label.preview':'معاينة QR',
-        'home.title':'أدوات مجانية على الإنترنت للاستخدام اليومي','home.lead':'Quarx AI يقدم أدوات ويب خفيفة وسريعة ومجانية للمطورين والمستخدمين.','home.search.placeholder':'ابحث عن أدوات (مثال: json, qr, word)','home.filter.all':'جميع الفئات','home.filter.developer':'أدوات المطورين','home.filter.daily':'أدوات يومية','home.cat.developer':'أدوات المطورين','home.cat.developer.lead':'معرّف JSON، ظل CSS، Base64، تصغير HTML، مولد كلمات مرور والمزيد.','home.cat.daily':'أدوات يومية','home.cat.daily.lead':'عداد الكلمات، جيل رموز QR، حاسبة العمر، بومودورو، الملاحظات وأدوات مفيدة.','home.browse':'تصفح','home.open':'افتح','home.pop.json.lead':'تنسيق والتحقق من JSON.','home.pop.word.lead':'احسب الكلمات والأحرف بسرعة.','home.pop.color.lead':'توليد ونسخ قيم HEX/RGB/HSL.','home.pop.qr.lead':'أنشئ رموز QR بسهولة.','home.pop.image.lead':'اضغط الصور في متصفحك.',
+        'home.title':'أدوات مجانية على الإنترنت للاستخدام اليومي','home.lead':'Quarx AI يقدم أدوات ويب خفيفة وسريعة ومجانية للمطورين والمستخدمين.','home.search.placeholder':'ابحث عن أدوات (مثال: json, qr, word)','home.filter.all':'جميع الفئات','home.filter.developer':'أدوات المطورين','home.filter.daily':'أدوات يومية','home.cat.developer':'أدوات المطورين','home.cat.developer.lead':'معرّف JSON، ظل CSS، Base64، تصغير HTML، مولد كلمات مرور والمزيد.','home.cat.daily':'أدوات يومية','home.cat.daily.lead':'عداد الكلمات، رموز QR، تحويل الصور إلى PDF، بومودورو وأدوات مفيدة.','home.browse':'تصفح','home.open':'افتح','home.pop.json.lead':'تنسيق والتحقق من JSON.','home.pop.word.lead':'احسب الكلمات والأحرف بسرعة.','home.pop.color.lead':'توليد ونسخ قيم HEX/RGB/HSL.','home.pop.qr.lead':'أنشئ رموز QR بسهولة.','home.pop.image.lead':'اضغط الصور في متصفحك.',
         'cat.dev.title':'أدوات المطورين','cat.dev.lead':'أدوات مفيدة للمطورين والطلاب.','cat.dev.json.desc':'تنسيق والتحقق من JSON.','cat.dev.shadow.desc':'إنشاء ظلال الصناديق بصريًا.','cat.dev.color.desc':'توليد الألوان واللوحات.','cat.dev.base64.desc':'ترميز أو فك ترميز سلاسل Base64.','cat.dev.html.desc':'تصغير HTML للإنتاج.','cat.dev.pwd.desc':'إنشاء كلمات مرور عشوائية آمنة.',
-        'cat.daily.title':'أدوات يومية','cat.daily.lead':'أدوات بسيطة للمستخدمين اليوميين.','cat.daily.word.desc':'عد الكلمات والأحرف.','cat.daily.img.desc':'ضغط الصور بدون رفع أو فقدان.','cat.daily.tts.desc':'قراءة النص بصوت مسموع.','cat.daily.qr.desc':'توليد رموز QR بسرعة.','cat.daily.age.desc':'احسب العمر من تاريخ الميلاد.','cat.daily.unit.desc':'تحويل الطول والوزن والمزيد.','cat.daily.pom.desc':'مؤقت بومودورو بسيط مع إشعارات.'
+        'cat.daily.title':'أدوات يومية','cat.daily.lead':'أدوات بسيطة للمستخدمين اليوميين.','cat.daily.word.desc':'عد الكلمات والأحرف.','cat.daily.img.desc':'ضغط الصور بدون رفع أو فقدان.','cat.daily.cc.desc':'حوّل العملات العربية إلى الدولار بسهولة.','cat.daily.qr.desc':'توليد رموز QR بسرعة.','cat.daily.img2pdf.desc':'دمج عدة صور في ملف PDF.','cat.daily.unit.desc':'تحويل الطول والوزن والمزيد.','cat.daily.pom.desc':'مؤقت بومودورو بسيط مع إشعارات.'
       }
     };
 
@@ -205,7 +203,6 @@
     if(/html-minifier|minifier/.test(page)) scheduleInit(initHtmlMinifier);
     if(/password/.test(page)) scheduleInit(initPasswordGenerator);
     if(/image-compressor|compressor/.test(page)) scheduleInit(initImageCompressor);
-    if(/tts|text-to-speech/.test(page)) scheduleInit(initTTS);
     if(/qr/.test(page)) scheduleInit(initQR);
     if(/age/.test(page)) scheduleInit(initAgeCalculator);
     if(/unit/.test(page)) scheduleInit(initUnitConverter);
@@ -536,152 +533,10 @@
     });
   }
 
-  // Text to Speech
-  function initTTS(){
-    const ta = el('tts-input');
-    const speak = el('tts-speak');
-    const stop = el('tts-stop');
-    const voiceSel = el('voice-select');
-    const rateEl = el('tts-rate');
-    const pitchEl = el('tts-pitch');
-    if(!speak || !ta) return;
-    let utter = null;
-    const synth = window.speechSynthesis;
+  // QR (uses public API image)
 
-    function normalizeText(txt){
-      if(!txt) return '';
-      // basic normalization: collapse spaces, ensure sentences end with punctuation
-      let t = txt.replace(/[\u2018\u2019]/g,"'").replace(/[\u201C\u201D]/g,'"');
-      t = t.replace(/\s+/g,' ').trim();
-      if(t && !/[.!?]$/.test(t)) t = t + '.';
-      return t;
-    }
 
-    const langSel = el('tts-lang');
-    const genderSel = el('tts-gender');
 
-    function detectGender(v){
-      const n = (v.name || '').toLowerCase();
-      if(/female|woman|girl|zira|sara|sara|amina|amina|sara|female/i.test(n)) return 'female';
-      if(/male|man|boy|alex|david|daniel|john|ahmed|omar/i.test(n)) return 'male';
-      return 'unknown';
-    }
-
-    function populateVoices(){
-      const voices = synth.getVoices() || [];
-      if(!voiceSel) return;
-      voiceSel.innerHTML = '';
-      const langFilter = langSel && langSel.value ? langSel.value : 'any';
-      const genderFilter = genderSel && genderSel.value ? genderSel.value : 'any';
-      let filtered = voices.slice();
-      if(langFilter !== 'any'){
-        filtered = filtered.filter(v=> (v.lang||'').toLowerCase().startsWith(langFilter));
-      }
-      if(genderFilter !== 'any'){
-        filtered = filtered.filter(v=> detectGender(v) === genderFilter);
-      }
-      // sort: prefer exact lang matches and English first
-      filtered.sort((a,b)=>{
-        const ae = /(en|ar)/.test(a.lang||''); const be = /(en|ar)/.test(b.lang||'');
-        if(ae && !be) return -1; if(!ae && be) return 1; return a.name.localeCompare(b.name);
-      });
-      filtered.forEach(v=>{
-        const opt = document.createElement('option');
-        opt.value = v.name; opt.setAttribute('data-lang', v.lang || ''); opt.setAttribute('data-gender', detectGender(v));
-        opt.textContent = v.name + ' (' + (v.lang||'') + ')';
-        voiceSel.appendChild(opt);
-      });
-      // select a default: prefer exact language selection
-      if(voiceSel.options.length){
-        let chosenIndex = 0;
-        for(let i=0;i<voiceSel.options.length;i++){
-          const opt = voiceSel.options[i];
-          if(langSel && langSel.value !== 'any' && opt.getAttribute('data-lang').toLowerCase().startsWith(langSel.value)) { chosenIndex = i; break; }
-          if(opt.getAttribute('data-lang').toLowerCase().startsWith('en')){ chosenIndex = i; break; }
-        }
-        voiceSel.selectedIndex = chosenIndex;
-      }
-    }
-
-    if('onvoiceschanged' in synth) synth.onvoiceschanged = populateVoices;
-    // repopulate when language or gender changes
-    if(langSel) langSel.addEventListener('change', populateVoices);
-    if(genderSel) genderSel.addEventListener('change', populateVoices);
-    populateVoices();
-
-    function speakText(){
-      const text = normalizeText(ta.value);
-      if(!text) return;
-      speechSynthesis.cancel();
-      utter = new SpeechSynthesisUtterance(text);
-      const selName = voiceSel && voiceSel.value;
-      const available = synth.getVoices() || [];
-      let chosen = available.find(v=>v.name === selName);
-      // if none chosen, try to find by selected language
-      const selectedLang = langSel && langSel.value !== 'any' ? langSel.value : null;
-      if(!chosen && selectedLang){
-        chosen = available.find(v=> (v.lang||'').toLowerCase().startsWith(selectedLang));
-      }
-      if(!chosen) chosen = available.find(v=>/en/.test(v.lang)) || available[0];
-      if(chosen) utter.voice = chosen;
-      // set utter.lang to the selected TTS language if present
-      if(selectedLang) utter.lang = selectedLang === 'ar' ? 'ar-SA' : 'en-US';
-      else utter.lang = (chosen && chosen.lang) || 'en-US';
-      utter.rate = rateEl ? Math.max(0.6, Math.min(1.4, parseFloat(rateEl.value)||0.95)) : 0.95;
-      utter.pitch = pitchEl ? Math.max(0.6, Math.min(2, parseFloat(pitchEl.value)||1)) : 1;
-      speechSynthesis.speak(utter);
-    }
-
-    speak.addEventListener('click', ()=>{ speakText(); });
-    stop.addEventListener('click', ()=>{ speechSynthesis.cancel(); });
-    
-    // Audio player display
-    const audioEl = el('tts-audio');
-    const downloadBtn = el('tts-download');
-    
-    // When speaking finishes, show audio player
-    function showAudioUI(){
-      if(audioEl) audioEl.style.display = 'block';
-    }
-    
-    const originalSpeak = speak.addEventListener;
-    if(audioEl && downloadBtn){
-      downloadBtn.addEventListener('click', ()=>{
-        const text = normalizeText(ta.value);
-        if(!text) return;
-        
-        // Export as WAV file using the AudioContext
-        // This uses a workaround to create an audio file
-        const utterance = new SpeechSynthesisUtterance(text);
-        const selName = voiceSel && voiceSel.value;
-        const available = synth.getVoices() || [];
-        let chosen = available.find(v=>v.name === selName);
-        
-        if(!chosen){
-          const selectedLang = langSel && langSel.value !== 'any' ? langSel.value : null;
-          if(selectedLang) chosen = available.find(v=> (v.lang||'').toLowerCase().startsWith(selectedLang));
-          if(!chosen) chosen = available.find(v=>/en/.test(v.lang)) || available[0];
-        }
-        
-        if(chosen) utterance.voice = chosen;
-        const selectedLang = langSel && langSel.value !== 'any' ? langSel.value : null;
-        if(selectedLang) utterance.lang = selectedLang === 'ar' ? 'ar-SA' : 'en-US';
-        else utterance.lang = (chosen && chosen.lang) || 'en-US';
-        utterance.rate = rateEl ? Math.max(0.6, Math.min(1.4, parseFloat(rateEl.value)||0.95)) : 0.95;
-        utterance.pitch = pitchEl ? Math.max(0.6, Math.min(2, parseFloat(pitchEl.value)||1)) : 1;
-        
-        // Create a blob URL from audio data
-        // Note: Direct audio capture from SpeechSynthesis is blocked for security
-        // This provides a download link that users can use with recording software
-        const downloadLink = document.createElement('a');
-        downloadLink.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent('Speech synthesis audio export\nTo save this audio, use your browser\'s recording tools or the speech synthesis API directly.');
-        downloadLink.download = 'speech-export-guide.txt';
-        downloadLink.click();
-        
-        alert('Due to browser security restrictions, direct audio capture from Web Speech API is not available.\n\nAlternative: You can record the spoken audio using:\n1. Browser DevTools (Chrome/Firefox)\n2. Third-party recording extensions\n3. OBS Studio or similar recording software');
-      });
-    }
-  }
 
   // QR (uses public API image)
   function initQR(){
@@ -694,40 +549,94 @@
     if(!btn) return;
     
     function generateQR(){
-      const v = encodeURIComponent(inp.value||'');
-      const src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='+v;
-      img.src = src;
+      const text = inp.value.trim();
+      if(!text){
+        alert('Please enter text or URL to generate QR code');
+        return;
+      }
       
-      // When image loads, add white border to canvas
-      img.onload = ()=>{
-        if(canvas && img.src){
-          const ctx = canvas.getContext('2d');
-          canvas.width = 340;
-          canvas.height = 340;
-          ctx.fillStyle = '#ffffff';
-          ctx.fillRect(0, 0, 340, 340);
-          ctx.drawImage(img, 20, 20, 300, 300);
-          canvas.style.display = 'block';
+      const v = encodeURIComponent(text);
+      const src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='+v;
+      
+      // Create a new image object to ensure proper loading
+      const newImg = new Image();
+      newImg.crossOrigin = 'Anonymous';
+      
+      newImg.onload = ()=>{
+        try {
+          // Draw on canvas with white border
+          if(canvas){
+            const ctx = canvas.getContext('2d');
+            canvas.width = 340;
+            canvas.height = 340;
+            
+            // White background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 340, 340);
+            
+            // Draw QR code centered with padding
+            ctx.drawImage(newImg, 20, 20, 300, 300);
+            
+            canvas.style.display = 'block';
+          }
+          
           img.style.display = 'none';
           
           // Enable download button
           if(downloadBtn) downloadBtn.disabled = false;
+        } catch(e){
+          console.error('Canvas error:', e);
+          // Fallback: show image directly if canvas fails
+          img.src = src;
+          img.style.display = 'block';
+          if(canvas) canvas.style.display = 'none';
         }
       };
-      img.style.display = 'block';
-      if(canvas) canvas.style.display = 'none';
+      
+      newImg.onerror = ()=>{
+        alert('Failed to generate QR code. Please check your input and try again.');
+        console.error('QR image load failed');
+        // Fallback: try to show image directly
+        img.src = src;
+        img.style.display = 'block';
+        if(canvas) canvas.style.display = 'none';
+      };
+      
+      // Start loading the image
+      newImg.src = src;
     }
     
     btn.addEventListener('click', generateQR);
-    if(copyBtn) copyBtn.addEventListener('click', ()=>copyText(img.src));
+    
+    if(copyBtn){
+      copyBtn.addEventListener('click', ()=>{
+        if(canvas && canvas.style.display !== 'none'){
+          const dataUrl = canvas.toDataURL('image/png');
+          copyText(dataUrl);
+          alert('QR code image URL copied to clipboard');
+        } else if(img && img.src){
+          copyText(img.src);
+          alert('QR code URL copied to clipboard');
+        }
+      });
+    }
     
     if(downloadBtn){
       downloadBtn.addEventListener('click', ()=>{
         if(canvas && canvas.style.display !== 'none'){
-          const link = document.createElement('a');
-          link.href = canvas.toDataURL('image/png');
-          link.download = 'qr-code.png';
-          link.click();
+          try {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'qr-code.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          } catch(e){
+            alert('Download failed. Please try again.');
+            console.error('Download error:', e);
+          }
+        } else {
+          alert('Generate a QR code first');
         }
       });
     }
