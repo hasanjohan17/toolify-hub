@@ -192,7 +192,8 @@
           genPdfBtn.disabled = false;
 
           if(skippedImages.length > 0){
-            alert(`تم تخطي بعض الصور بسبب فشل التحميل (${skippedImages.length}/${images.length}).`);
+            const details = skippedImages.slice(0, 3).join('\n');
+            alert(`تم تخطي بعض الصور بسبب فشل التحميل (${skippedImages.length}/${images.length}).\n${details}`);
           }
           
         } catch(err){
