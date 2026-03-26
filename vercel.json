@@ -6,12 +6,7 @@
       "runtime": "nodejs18.x"
     }
   },
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
-    }
-  ],
+  "headers": [
     {
       "source": "/css/:file*",
       "headers": [
@@ -86,8 +81,8 @@
   ],
   "rewrites": [
     {
-      "source": "/:path*",
-      "destination": "/:path*"
+      "source": "/api/:path(.*)",
+      "destination": "/api/:path*"
     }
   ]
 }

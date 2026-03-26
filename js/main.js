@@ -911,6 +911,21 @@
   if(window.performance && window.performance.timing){
     window.addEventListener('load', ()=>{
       const timing = window.performance.timing;
+      window.perfMetrics = {
+        navigationStart: timing.navigationStart,
+        responseEnd: timing.responseEnd,
+        domContentLoadedEventEnd: timing.domContentLoadedEventEnd,
+        loadEventEnd: timing.loadEventEnd,
+        pageLoad: timing.loadEventEnd - timing.navigationStart
+      };
+      if(window.gtag){
+        gtag('event', 'page_performance', {
+          page_load_time: window.perfMetrics.pageLoad
+        });
+      }
+    });
+  }
+})();
       const loadTime = timing.loadEventEnd - timing.navigationStart;
       const domReady = timing.domContentLoadedEventEnd - timing.navigationStart;
       window.perfMetrics = {
