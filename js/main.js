@@ -289,10 +289,10 @@
       });
     }
 
-    // Newsletter Form Handler - Simple MVP with success message
+    // Newsletter Form Handler - Send to Brevo and localStorage
     const newsletterForm = document.getElementById('newsletter-signup');
     if(newsletterForm){
-      newsletterForm.addEventListener('submit', (e)=>{
+      newsletterForm.addEventListener('submit', async (e)=>{
         e.preventDefault();
         const emailInput = document.getElementById('newsletter-email');
         const submitBtn = newsletterForm.querySelector('button[type="submit"]');
@@ -300,25 +300,43 @@
         
         if(!email) return;
         
-        // Track signup
-        if(window.gtag){
-          gtag('event', 'newsletter_subscribe', {
-            'action': 'subscribe',
-            'email': email
-          });
-        }
-        
-        // Save to localStorage for data collection (can sync later)
-        let subscribers = JSON.parse(localStorage.getItem('newsletter_subscribers') || '[]');
-        if(!subscribers.includes(email)) subscribers.push(email);
-        localStorage.setItem('newsletter_subscribers', JSON.stringify(subscribers));
-        
-        // Show success
         const originalText = submitBtn.textContent;
         const isArabic = document.documentElement.lang === 'ar';
-        submitBtn.textContent = isArabic ? '✓ تم الاشتراك!' : '✓ Subscribed!';
         submitBtn.disabled = true;
-        emailInput.value = '';
+        submitBtn.textContent = isArabic ? 'جاري...' : 'Subscribing...';
+        
+        try {
+          // Send to Brevo via API
+          const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+          
+          if(response.ok) {
+            // Track in GA
+            if(window.gtag){
+              gtag('event', 'newsletter_subscribe', {
+                'action': 'subscribe',
+                'email': email
+              });
+            }
+            
+            // Also save locally
+            let subscribers = JSON.parse(localStorage.getItem('newsletter_subscribers') || '[]');
+            if(!subscribers.includes(email)) subscribers.push(email);
+            localStorage.setItem('newsletter_subscribers', JSON.stringify(subscribers));
+            
+            // Show success
+            submitBtn.textContent = isArabic ? '✓ تم الاشتراك!' : '✓ Subscribed!';
+            emailInput.value = '';
+          } else {
+            throw new Error('Subscription failed');
+          }
+        } catch(err) {
+          submitBtn.textContent = isArabic ? 'خطأ - حاول مجدداً' : 'Error - Try again';
+          console.error('Newsletter error:', err);
+        }
         
         setTimeout(()=>{
           submitBtn.textContent = originalText;
