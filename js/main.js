@@ -289,53 +289,30 @@
       });
     }
 
-    // Newsletter Form Handler - Direct Formspree Integration
+    // Newsletter Form Handler - Formspree direct submission
     const newsletterForm = document.getElementById('newsletter-signup');
     if(newsletterForm){
-      newsletterForm.addEventListener('submit', async (e)=>{
-        e.preventDefault();
+      newsletterForm.addEventListener('submit', (e)=>{
         const emailInput = newsletterForm.querySelector('input[type="email"]');
         const submitBtn = newsletterForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
         
-        try {
-          submitBtn.disabled = true;
-          const isArabic = document.documentElement.lang === 'ar';
-          submitBtn.textContent = isArabic ? 'جاري الاشتراك...' : 'Subscribing...';
-          
-          // Direct Formspree API call
-          const response = await fetch('https://formspree.io/f/xjkavwyb', {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: new FormData(newsletterForm)
+        // Track newsletter signup in Google Analytics
+        if(window.gtag && emailInput.value){
+          gtag('event', 'newsletter_subscribe', {
+            'action': 'subscribe',
+            'email': emailInput.value
           });
-          
-          if(response.ok){
-            // Track newsletter signup in Google Analytics
-            if(window.gtag){
-              gtag('event', 'newsletter_subscribe', {
-                'action': 'subscribe',
-                'email': emailInput.value
-              });
-            }
-            emailInput.value = '';
-            submitBtn.textContent = isArabic ? '✓ تم الاشتراك!' : '✓ Subscribed!';
-            setTimeout(()=>{ submitBtn.textContent = originalText; submitBtn.disabled = false; }, 3000);
-          } else {
-            throw new Error('Subscription failed');
-          }
-        } catch(err){
-          if(window.gtag){
-            gtag('event', 'newsletter_error', {
-              'action': 'subscribe',
-              'error': err.message
-            });
-          }
-          const isArabic = document.documentElement.lang === 'ar';
-          submitBtn.textContent = isArabic ? 'خطأ - حاول مجدداً' : 'Error - Try again';
-          console.error('Newsletter error:', err);
-          setTimeout(()=>{ submitBtn.textContent = originalText; submitBtn.disabled = false; }, 3000);
         }
+        
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = document.documentElement.lang === 'ar' ? 'جاري...' : 'Submitting...';
+        
+        // Let Formspree handle the submission naturally
+        setTimeout(()=>{
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }, 1000);
       });
     }
 
