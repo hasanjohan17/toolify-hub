@@ -8,6 +8,15 @@
   },
   "headers": [
     {
+      "source": "/js/main.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
       "source": "/css/:file*",
       "headers": [
         {
@@ -38,7 +47,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600"
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
