@@ -289,13 +289,13 @@
       });
     }
 
-    // Newsletter Form Handler
+    // Newsletter Form Handler - Direct Formspree Integration
     const newsletterForm = document.getElementById('newsletter-signup');
     if(newsletterForm){
       newsletterForm.addEventListener('submit', async (e)=>{
         e.preventDefault();
         const emailInput = newsletterForm.querySelector('input[type="email"]');
-        const submitBtn = newsletterForm.querySelector('button[type=\"submit\"]');
+        const submitBtn = newsletterForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
         
         try {
@@ -303,14 +303,12 @@
           const isArabic = document.documentElement.lang === 'ar';
           submitBtn.textContent = isArabic ? 'جاري الاشتراك...' : 'Subscribing...';
           
-          // Call serverless function that handles Brevo subscription
-          const response = await fetch('/api/subscribe', {
+          // Direct Formspree API call
+          const response = await fetch('https://formspree.io/f/xjkavwyb', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: emailInput.value })
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(newsletterForm)
           });
-          
-          const data = await response.json();
           
           if(response.ok){
             // Track newsletter signup in Google Analytics
@@ -324,7 +322,7 @@
             submitBtn.textContent = isArabic ? '✓ تم الاشتراك!' : '✓ Subscribed!';
             setTimeout(()=>{ submitBtn.textContent = originalText; submitBtn.disabled = false; }, 3000);
           } else {
-            throw new Error(data.message || 'Failed to subscribe');
+            throw new Error('Subscription failed');
           }
         } catch(err){
           if(window.gtag){
