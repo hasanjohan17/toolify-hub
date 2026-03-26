@@ -78,6 +78,12 @@
   </footer>`;
 
   function el(id){return document.getElementById(id)}
+  
+  // Helper to schedule functions during idle time or with timeout
+  function scheduleTask(fn){
+    if('requestIdleCallback' in window) requestIdleCallback(fn, {timeout:1000});
+    else setTimeout(fn, 300);
+  }
 
   document.addEventListener('DOMContentLoaded', function(){
     const hdr = document.getElementById('site-header');
@@ -195,22 +201,22 @@
       window.location.href = newPath;
     });
     // schedule tool initializers during idle time to improve load
-    function scheduleInit(fn){
+    const scheduleTask = (fn) => {
       if('requestIdleCallback' in window) requestIdleCallback(fn, {timeout:1000});
       else setTimeout(fn, 300);
-    }
-    if(/json/.test(page)) scheduleInit(initJSONTool);
-    if(/word/.test(page)) scheduleInit(initWordCounter);
-    if(/color/.test(page)) scheduleInit(initColorGenerator);
-    if(/box-shadow|shadow/.test(page)) scheduleInit(initBoxShadow);
-    if(/base64/.test(page)) scheduleInit(initBase64);
-    if(/html-minifier|minifier/.test(page)) scheduleInit(initHtmlMinifier);
-    if(/password/.test(page)) scheduleInit(initPasswordGenerator);
-    if(/image-compressor|compressor/.test(page)) scheduleInit(initImageCompressor);
-    if(/qr/.test(page)) scheduleInit(initQR);
-    if(/age/.test(page)) scheduleInit(initAgeCalculator);
-    if(/unit/.test(page)) scheduleInit(initUnitConverter);
-    if(/pomodoro/.test(page)) scheduleInit(initPomodoro);
+    };
+    if(/json/.test(page)) scheduleTask(initJSONTool);
+    if(/word/.test(page)) scheduleTask(initWordCounter);
+    if(/color/.test(page)) scheduleTask(initColorGenerator);
+    if(/box-shadow|shadow/.test(page)) scheduleTask(initBoxShadow);
+    if(/base64/.test(page)) scheduleTask(initBase64);
+    if(/html-minifier|minifier/.test(page)) scheduleTask(initHtmlMinifier);
+    if(/password/.test(page)) scheduleTask(initPasswordGenerator);
+    if(/image-compressor|compressor/.test(page)) scheduleTask(initImageCompressor);
+    if(/qr/.test(page)) scheduleTask(initQR);
+    if(/age/.test(page)) scheduleTask(initAgeCalculator);
+    if(/unit/.test(page)) scheduleTask(initUnitConverter);
+    if(/pomodoro/.test(page)) scheduleTask(initPomodoro);
 
     // categories and homepage search/filter
     const searchInput = document.getElementById('tool-search');
@@ -869,7 +875,7 @@
       }
     });
   }
-  scheduleInit(renderToolIcons);
+  scheduleTask(renderToolIcons);
 
   // Copy Share Link Function - works globally with any URL
   window.copyShareLink = function(url, btn){
