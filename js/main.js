@@ -415,7 +415,7 @@
         });
       });
     }
-    scheduleInit(attachControlBars);
+    scheduleTask(attachControlBars);
   });
 
   // utilities
