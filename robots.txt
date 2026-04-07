@@ -21,4 +21,4 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap locations
-Sitemap: https://quarxai.com/sitemap.xml
+Sitemap: https://quarx-ai.vercel.app
