@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <base href="../">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>اختبار طلبات API - أداة مجانية | Quarx AI</title>
+  <meta name="description" content="أداة مجانية لاختبار طلبات API على الإنترنت. اختبر GET و POST و PUT و DELETE بسهولة، بدون الحاجة لـ Postman.">
+  <meta name="keywords" content="اختبار API, Postman بديل, اختبار REST, HTTP request, اختبار ويب, أداة API">
+  <link rel="canonical" href="./ar/tools/api-tester.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="اختبار طلبات API — Quarx AI">
+  <meta property="og:description" content="أداة اختبار API مجانية - اختبر REST APIs مباشرة في المتصفح. يدعم GET و POST و PUT و DELETE و هارات أخرى.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" href="../favicon.png?v=2" type="image/png">
+  <link rel="apple-touch-icon" href="../favicon.png?v=2">
+  <script>!function(){var t=localStorage.getItem('devtools-theme'),e=t||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');if('dark'===e){if(!document.documentElement.style.colorScheme)document.documentElement.style.colorScheme='dark';document.body.setAttribute('data-theme','dark')}else{document.documentElement.style.colorScheme='light';document.body.removeAttribute('data-theme')}}()</script>
+  <link rel="preload" href="./css/style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="./css/style.css"></noscript>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "اختبار طلبات API",
+    "url": "https://quarx-ai.vercel.app/ar/tools/api-tester.html",
+    "applicationCategory": "UtilityApplication",
+    "description": "أداة اختبار API مجانية. اختبر REST APIs بسهولة بدون تثبيت.",
+    "image": "https://quarx-ai.vercel.app/favicon.svg",
+    "author": { "@type": "Organization", "name": "Quarx AI" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <style>
+    .method-select {
+      padding: 8px 12px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--fg);
+      font-weight: 600;
+      cursor: pointer;
+      min-width: 100px;
+    }
+    .method-select.get { color: #0066cc; }
+    .method-select.post { color: #009900; }
+    .method-select.put { color: #ff8800; }
+    .method-select.delete { color: #cc0000; }
+    .method-select.patch { color: #9900cc; }
+
+    .url-input-group {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    .url-input-group .method-select {
+      flex-shrink: 0;
+    }
+    .url-input-group input {
+      flex: 1;
+      padding: 10px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: monospace;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    .status-badge.success { background: #d4edda; color: #155724; }
+    .status-badge.error { background: #f8d7da; color: #721c24; }
+    .status-badge.pending { background: #e7d4f5; color: #383838; }
+
+    .response-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 10px 0;
+      font-size: 0.9em;
+    }
+    .response-meta > div {
+      padding: 10px;
+      background: var(--glass);
+      border-radius: 6px;
+      border-right: 3px solid var(--accent);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 5px;
+      margin: 15px 0;
+      border-bottom: 2px solid var(--border);
+    }
+    .tab-btn {
+      padding: 10px 15px;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 500;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    .header-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr 50px;
+      gap: 10px;
+      margin: 8px 0;
+    }
+    .header-item input {
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--fg);
+    }
+    .header-item button {
+      padding: 8px;
+      background: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .request-history {
+      margin-top: 20px;
+      padding: 15px;
+      background: var(--glass);
+      border-radius: 8px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .request-history h3 {
+      margin-top: 0;
+    }
+    .history-item {
+      padding: 8px;
+      background: var(--bg);
+      border-radius: 4px;
+      margin: 5px 0;
+      cursor: pointer;
+      border-right: 3px solid var(--accent);
+    }
+    .history-item:hover {
+      background: var(--fg);
+      color: var(--bg);
+    }
+  </style>
+</head>
+<body data-page="tool-api-tester">
+  <div id="site-header"></div>
+
+  <main class="container tool">
+    <h1 class="tool-title">اختبار طلبات API</h1>
+    <p style="color:var(--muted)">اختبر REST APIs مثل Postman. يدعم GET و POST و PUT و DELETE و PATCH. يعمل 100% في المتصفح الخاص بك.</p>
+
+    <div style="margin:20px 0;padding:20px;background:var(--glass);border-radius:10px;border-right:4px solid var(--accent);">
+      <h2 style="margin-top:0;">ما هي أداة اختبار API؟</h2>
+      <p>أداة اختبار API تسمح لك بإرسال طلبات HTTP إلى أي نقطة نهاية API ورؤية الاستجابات على الفور. هذا ضروري للغاية لـ <strong>تصحيح الأخطاء في APIs</strong>، <strong>اختبار التكاملات</strong>، و <strong>التطوير</strong>. هذه الأداة تعمل مثل Postman لكن مباشرة في المتصفح الخاص بك.</p>
+      <p><strong>✨ الميزات:</strong></p>
+      <ul style="margin:10px 0;">
+        <li>✅ إرسال طلبات GET و POST و PUT و DELETE و PATCH</li>
+        <li>✅ إضافة رؤوس مخصصة والمصادقة</li>
+        <li>✅ إرسال بيانات JSON أو بيانات النموذج في جسم الطلب</li>
+        <li>✅ عرض حالة الاستجابة والرؤوس والجسم</li>
+        <li>✅ سجل الطلبات للوصول السريع</li>
+        <li>✅ يعمل 100% في المتصفح الخاص بك</li>
+        <li>✅ لا يتم إرسال البيانات إلى خوادم الطرف الثالث</li>
+      </ul>
+    </div>
+
+    <div style="margin: 30px 0;">
+      <!-- Request Section -->
+      <section class="panel">
+        <h3>الطلب</h3>
+        
+        <div class="url-input-group">
+          <select id="method" class="method-select get">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+            <option value="PATCH">PATCH</option>
+            <option value="HEAD">HEAD</option>
+            <option value="OPTIONS">OPTIONS</option>
+          </select>
+          <input type="url" id="url" placeholder="أدخل رابط API (مثل: https://api.example.com/users)" value="">
+        </div>
+
+        <button id="send-btn" class="btn" style="margin-bottom: 20px;">إرسال الطلب</button>
+
+        <!-- Tabs for Headers and Body -->
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab('headers-tab')">الرؤوس</button>
+          <button class="tab-btn" onclick="switchTab('body-tab')">الجسم</button>
+          <button class="tab-btn" onclick="switchTab('auth-tab')">المصادقة</button>
+        </div>
+
+        <!-- Headers Tab -->
+        <div id="headers-tab" class="tab-content active">
+          <div id="headers-container"></div>
+          <button onclick="addHeader()" class="btn btn-small" style="margin-top: 10px;">+ إضافة رأس</button>
+        </div>
+
+        <!-- Body Tab -->
+        <div id="body-tab" class="tab-content">
+          <textarea id="body" class="code" placeholder="أدخل جسم الطلب (JSON أو بيانات النموذج وغيرها)"></textarea>
+          <button onclick="setBodyTemplate('json')" class="btn btn-small" style="margin-top: 10px;">نموذج JSON</button>
+        </div>
+
+        <!-- Auth Tab -->
+        <div id="auth-tab" class="tab-content">
+          <label style="display: block; margin: 10px 0;">
+            <input type="radio" name="auth-type" value="none" checked> لا توجد مصادقة
+          </label>
+          <label style="display: block; margin: 10px 0;">
+            <input type="radio" name="auth-type" value="bearer"> Bearer Token
+          </label>
+          <input type="password" id="bearer-token" placeholder="أدخل Bearer token" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 4px; margin-top: 10px; display: none;">
+        </div>
+      </section>
+
+      <!-- Response Section -->
+      <section class="panel" style="margin-top: 30px;">
+        <h3>الاستجابة</h3>
+        
+        <div id="response-status" style="display: none;">
+          <div class="status-badge" id="status-badge"></div>
+          <div class="response-meta">
+            <div>
+              <strong>رمز الحالة:</strong><br>
+              <span id="status-code">-</span>
+            </div>
+            <div>
+              <strong>وقت الاستجابة:</strong><br>
+              <span id="response-time">0ms</span>
+            </div>
+            <div>
+              <strong>حجم الاستجابة:</strong><br>
+              <span id="response-size">0 bytes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs" style="margin-top: 20px;">
+          <button class="tab-btn active" onclick="switchTab('response-body-tab')">الجسم</button>
+          <button class="tab-btn" onclick="switchTab('response-headers-tab')">الرؤوس</button>
+        </div>
+
+        <!-- Response Body Tab -->
+        <div id="response-body-tab" class="tab-content active">
+          <textarea id="response-body" class="code" readonly placeholder="سيظهر الرد هنا"></textarea>
+          <div class="tool-actions" style="margin-top: 10px;">
+            <button onclick="copyResponse()" class="btn">نسخ الاستجابة</button>
+            <button onclick="formatResponseJSON()" class="btn btn-ghost">تنسيق JSON</button>
+            <button onclick="clearResponse()" class="btn btn-ghost">مسح</button>
+          </div>
+        </div>
+
+        <!-- Response Headers Tab -->
+        <div id="response-headers-tab" class="tab-content">
+          <pre id="response-headers" style="background: var(--bg); padding: 15px; border-radius: 6px; overflow-x: auto;"></pre>
+        </div>
+      </section>
+
+      <!-- Request History -->
+      <div class="request-history" id="history-section" style="display: none;">
+        <h3>سجل الطلبات</h3>
+        <div id="history-list"></div>
+        <button onclick="clearHistory()" class="btn btn-small" style="margin-top: 10px;">مسح السجل</button>
+      </div>
+    </div>
+
+    <section style="margin-top: 40px; padding: 20px; background: var(--glass); border-radius: 8px;">
+      <h3 style="margin-top: 0;">الأدوات ذات الصلة</h3>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="../ar/tools/json-formatter.html" class="btn btn-small" style="background: var(--accent); color: white;">منسق JSON</a>
+        <a href="../ar/tools/base64.html" class="btn btn-small" style="background: var(--accent); color: white;">مشفر Base64</a>
+      </div>
+    </section>
+
+    <section style="margin-top: 20px; padding: 20px; background: var(--glass); border-radius: 8px; text-align: center;">
+      <h2 style="margin-top: 0;">أسئلة شائعة</h2>
+      
+      <details style="margin: 15px 0; cursor: pointer;">
+        <summary style="font-weight: 600; padding: 10px;">ما هي طرق HTTP المدعومة؟</summary>
+        <p style="margin: 10px 0; color: var(--muted);">ندعم طرق GET و POST و PUT و DELETE و PATCH و HEAD و OPTIONS. هذا يغطي جميع عمليات REST API الشائعة.</p>
+      </details>
+
+      <details style="margin: 15px 0; cursor: pointer;">
+        <summary style="font-weight: 600; padding: 10px;">لماذا أتلقى أخطاء CORS؟</summary>
+        <p style="margin: 10px 0; color: var(--muted);">CORS (Cross-Origin Resource Sharing) هي ميزة أمان في المتصفح. إذا لم تسمح API بطلبات من مجالك، ستظهر أخطاء CORS. هذا طبيعي وغير متوقع لأسباب أمنية.</p>
+      </details>
+
+      <details style="margin: 15px 0; cursor: pointer;">
+        <summary style="font-weight: 600; padding: 10px;">هل يمكنني اختبار APIs المحلية؟</summary>
+        <p style="margin: 10px 0; color: var(--muted);">نعم، طالما أن خادمك المحلي قيد التشغيل ويسمح بطلبات المتصفح. قد تواجه مشاكل CORS مع خوادم التطوير المحلية.</p>
+      </details>
+
+      <details style="margin: 15px 0; cursor: pointer;">
+        <summary style="font-weight: 600; padding: 10px;">كيف أضيف المصادقة؟</summary>
+        <p style="margin: 10px 0; color: var(--muted);">استخدم علامة التبويب "المصادقة" لإضافة رموز Bearer، أو أضف رؤوسًا مخصصة (Authorization و X-API-Key وما إلى ذلك) في علامة التبويب "الرؤوس".</p>
+      </details>
+
+      <details style="margin: 15px 0; cursor: pointer;">
+        <summary style="font-weight: 600; padding: 10px;">هل بيانتي آمنة؟</summary>
+        <p style="margin: 10px 0; color: var(--muted);">نعم! يتم إرسال جميع الطلبات مباشرة من متصفحك إلى نقطة نهاية API. لا نقوم بتخزين أو رؤية البيانات أو مفاتيح API الخاصة بك. استخدم نقاط نهاية HTTPS للحصول على أمان إضافي.</p>
+      </details>
+    </section>
+
+    <section style="margin-top: 20px; padding: 20px; background: var(--glass); border-radius: 8px; text-align: center;">
+      <h3 style="margin-top: 0;">مشاركة هذه الأداة</h3>
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://twitter.com/intent/tweet?url=https://quarx-ai.vercel.app/ar/tools/api-tester.html&text=Check%20out%20this%20free%20API%20tester%20from%20Quarx%20AI" target="_blank" rel="noopener" class="btn btn-small">Twitter</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://quarx-ai.vercel.app/ar/tools/api-tester.html" target="_blank" rel="noopener" class="btn btn-small">Facebook</a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://quarx-ai.vercel.app/ar/tools/api-tester.html" target="_blank" rel="noopener" class="btn btn-small">LinkedIn</a>
+        <button onclick="window.copyShareLink(window.location.href, this)" class="btn btn-small" title="نسخ الرابط إلى الحافظة">نسخ الرابط</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>
+    let requestHistory = JSON.parse(localStorage.getItem('apiTesterHistory')) || [];
+    const MAX_HISTORY = 20;
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('method').addEventListener('change', updateMethodColor);
+      document.querySelectorAll('input[name="auth-type"]').forEach(radio => {
+        radio.addEventListener('change', toggleAuthInput);
+      });
+      updateMethodColor();
+      renderHistory();
+    });
+
+    function updateMethodColor() {
+      const method = document.getElementById('method').value;
+      const select = document.getElementById('method');
+      select.className = `method-select ${method.toLowerCase()}`;
+    }
+
+    function switchTab(tabName) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      
+      // Show selected tab
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function addHeader() {
+      const container = document.getElementById('headers-container');
+      const item = document.createElement('div');
+      item.className = 'header-item';
+      item.innerHTML = `
+        <input type="text" placeholder="اسم الرأس" class="header-key">
+        <input type="text" placeholder="قيمة الرأس" class="header-value">
+        <button onclick="this.parentElement.remove()">✕</button>
+      `;
+      container.appendChild(item);
+    }
+
+    function setBodyTemplate(type) {
+      const templates = {
+        json: '{\n  "key": "value"\n}'
+      };
+      document.getElementById('body').value = templates[type] || '';
+    }
+
+    function toggleAuthInput() {
+      const type = document.querySelector('input[name="auth-type"]:checked').value;
+      document.getElementById('bearer-token').style.display = type === 'bearer' ? 'block' : 'none';
+    }
+
+    async function sendRequest() {
+      const method = document.getElementById('method').value;
+      const url = document.getElementById('url').value;
+      const body = document.getElementById('body').value;
+      
+      if (!url) {
+        alert('يرجى إدخال URL');
+        return;
+      }
+
+      document.getElementById('send-btn').disabled = true;
+      document.getElementById('send-btn').textContent = 'جاري الإرسال...';
+
+      try {
+        const startTime = performance.now();
+        
+        const options = {
+          method: method,
+          headers: {}
+        };
+
+        // Add custom headers
+        document.querySelectorAll('.header-item').forEach(item => {
+          const key = item.querySelector('.header-key').value;
+          const value = item.querySelector('.header-value').value;
+          if (key && value) {
+            options.headers[key] = value;
+          }
+        });
+
+        // Add Bearer token
+        const authType = document.querySelector('input[name="auth-type"]:checked').value;
+        if (authType === 'bearer') {
+          const token = document.getElementById('bearer-token').value;
+          if (token) {
+            options.headers['Authorization'] = `Bearer ${token}`;
+          }
+        }
+
+        // Add body if applicable
+        if (body && method !== 'GET' && method !== 'HEAD') {
+          options.body = body;
+          if (!options.headers['Content-Type']) {
+            options.headers['Content-Type'] = 'application/json';
+          }
+        }
+
+        const response = await fetch(url, options);
+        const endTime = performance.now();
+        const responseTime = Math.round(endTime - startTime);
+
+        let responseBody = '';
+        try {
+          responseBody = await response.text();
+        } catch (e) {
+          responseBody = '(غير قادر على قراءة الاستجابة)';
+        }
+
+        const responseSize = new Blob([responseBody]).size;
+
+        // Display response
+        displayResponse(response, responseBody, responseTime, responseSize);
+
+        // Add to history
+        addToHistory({
+          method,
+          url,
+          status: response.status,
+          time: new Date().toLocaleTimeString()
+        });
+
+      } catch (error) {
+        displayError(error.message);
+      } finally {
+        document.getElementById('send-btn').disabled = false;
+        document.getElementById('send-btn').textContent = 'إرسال الطلب';
+      }
+    }
+
+    function displayResponse(response, body, time, size) {
+      document.getElementById('response-status').style.display = 'block';
+      
+      const status = response.status;
+      const statusBadge = document.getElementById('status-badge');
+      statusBadge.textContent = `${status} ${response.statusText}`;
+      statusBadge.className = status < 300 ? 'status-badge success' : 'status-badge error';
+      
+      document.getElementById('status-code').textContent = status;
+      document.getElementById('response-time').textContent = time + 'ms';
+      document.getElementById('response-size').textContent = formatBytes(size);
+      
+      document.getElementById('response-body').value = body;
+
+      // Display headers
+      let headersText = '';
+      response.headers.forEach((value, key) => {
+        headersText += `${key}: ${value}\n`;
+      });
+      document.getElementById('response-headers').textContent = headersText || '(بدون رؤوس)';
+    }
+
+    function displayError(message) {
+      document.getElementById('response-status').style.display = 'block';
+      const statusBadge = document.getElementById('status-badge');
+      statusBadge.textContent = 'خطأ';
+      statusBadge.className = 'status-badge error';
+      
+      document.getElementById('response-body').value = `خطأ: ${message}\n\nتأكد من:\n- أن الرابط صحيح\n- خادم API قيد التشغيل\n- CORS مفعل (إذا كان طلب من نطاق مختلف)\n- الطلب صحيح`;
+    }
+
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 bytes';
+      const k = 1024;
+      const sizes = ['bytes', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    }
+
+    function copyResponse() {
+      const text = document.getElementById('response-body').value;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('تم نسخ الاستجابة إلى الحافظة!');
+      });
+    }
+
+    function formatResponseJSON() {
+      try {
+        const text = document.getElementById('response-body').value;
+        const json = JSON.parse(text);
+        document.getElementById('response-body').value = JSON.stringify(json, null, 2);
+      } catch (e) {
+        alert('صيغة JSON غير صحيحة');
+      }
+    }
+
+    function clearResponse() {
+      document.getElementById('response-body').value = '';
+      document.getElementById('response-headers').textContent = '';
+      document.getElementById('response-status').style.display = 'none';
+    }
+
+    function addToHistory(item) {
+      requestHistory.unshift(item);
+      if (requestHistory.length > MAX_HISTORY) {
+        requestHistory.pop();
+      }
+      localStorage.setItem('apiTesterHistory', JSON.stringify(requestHistory));
+      renderHistory();
+    }
+
+    function renderHistory() {
+      const historyList = document.getElementById('history-list');
+      const historySection = document.getElementById('history-section');
+      
+      if (requestHistory.length === 0) {
+        historySection.style.display = 'none';
+        return;
+      }
+      
+      historySection.style.display = 'block';
+      historyList.innerHTML = requestHistory.map((item, idx) => `
+        <div class="history-item" onclick="loadHistory(${idx})">
+          <strong>${item.method}</strong> ${item.status} - ${item.url.substring(0, 50)}...
+          <br><small>${item.time}</small>
+        </div>
+      `).join('');
+    }
+
+    function loadHistory(idx) {
+      const item = requestHistory[idx];
+      document.getElementById('method').value = item.method;
+      document.getElementById('url').value = item.url;
+      updateMethodColor();
+    }
+
+    function clearHistory() {
+      if (confirm('مسح سجل الطلبات بالكامل؟')) {
+        requestHistory = [];
+        localStorage.setItem('apiTesterHistory', JSON.stringify(requestHistory));
+        renderHistory();
+      }
+    }
+
+    // Attach send button
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('send-btn').addEventListener('click', sendRequest);
+    });
+  </script>
+
+  <script src="./js/main.js" defer></script>
+</body>
+</html>
